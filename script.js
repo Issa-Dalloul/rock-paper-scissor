@@ -10,19 +10,14 @@ const playAgainButton = document.getElementById("play-again");
 
 choiceButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // Get the user's choice from the button's id (rock, paper, or scissors)
     userChoice = button.id;
 
-    // Generate a random choice for the computer
     computerChoice = choices[Math.floor(Math.random() * 3)];
 
-    // Compare the choices and determine the result
     result = determineWinner(userChoice, computerChoice);
 
-    // Update the UI with the choices and result
     updateUI(userChoice, computerChoice, result);
 
-    // Update the score
     updateScore();
   });
 });
@@ -61,18 +56,15 @@ function updateScore() {
 }
 
 playAgainButton.addEventListener("click", () => {
-  // Reset the game
   userChoice = "";
   computerChoice = "";
   result = "";
 
-  // Clear the UI
   document.querySelector(".result").textContent = "Choose your move";
   document.querySelector("#computer-choice").textContent = "?";
   document.querySelector("#result-text").textContent = "";
   document.querySelector("body").style.backgroundColor = "#FFFFFF";
 
-  // Reset the scores
   playerScore = 0;
   computerScore = 0;
   updateScore();
